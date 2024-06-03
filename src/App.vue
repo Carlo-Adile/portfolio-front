@@ -24,7 +24,7 @@ export default {
         .get(url)
         .then(response => {
           this.projects = response.data.projects;
-          console.log(response.data.projects);
+          console.log(response.data);
         })
         .catch(err => {
           console.error(err);
@@ -75,24 +75,24 @@ export default {
   </header>
 
   <main>
-    <div class="p-5 mb-4 bg-tertiary">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+    <div class="p-5 mb-2 bg-tertiary">
+      <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold">Portfolio</h1>
         <p class="col-md-8 fs-4">
-          Using a series of utilities, you can create this jumbotron, just
-          like the one in previous versions of Bootstrap. Check out the
-          examples below for how you can remix and restyle it to your liking.
+          This is my personal portfolio where you can explore all of my projects in detail.
+          Each project showcases the various technologies I have used.
+          Feel free to browse through my work and see the skills I have developed over time.
+          Whether it's web development, mobile applications, or other software solutions.
         </p>
-        <button class="btn btn-primary btn-lg" type="button">
-          Example button
-        </button>
       </div>
     </div>
 
     <div class="container">
       <div class="row">
-        <div class="col-4" v-for="project in projects" :key="project.id">
+        <h2 class="p-3">Projects</h2>
+        <div class="col-4" v-for="project in projects.data">
           <ProjectCard :project="project" :baseApiUrl="base_api_url" />
+
         </div>
       </div>
     </div>
