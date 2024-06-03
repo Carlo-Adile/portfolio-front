@@ -1,14 +1,26 @@
 <script>
+import AppBanner from '../components/AppBanner.vue'
+
 export default {
-	name: 'AppHome'
+	name: 'AppHome',
+	components: {
+		AppBanner
+	},
+	data() {
+		return {
+			loading: true;
+			latestPosts: []
+		}
+	}
 }
 </script>
 
 
 <template>
-	<div>
-		<h1>Home page</h1>
-	</div>
+
+	<AppBanner title="Home page"
+		lead-text="This is the home page of my demo portfolio. Feel free to navigate through existing pages."
+		call-to-action="View Projects" call-to-action-url="blog" />
 </template>
 
 

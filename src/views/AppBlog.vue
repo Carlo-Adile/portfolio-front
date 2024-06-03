@@ -1,11 +1,13 @@
 <script>
 import axios from 'axios'
 import ProjectCard from '../components/ProjectCard.vue'
+import AppBanner from '../components/AppBanner.vue'
 
 export default {
 	name: 'AppBlog',
 	components: {
-		ProjectCard
+		ProjectCard,
+		AppBanner
 	},
 	data() {
 		return {
@@ -47,17 +49,11 @@ export default {
 
 <template>
 
-	<div class="p-5 mb-2 bg-tertiary">
-		<div class="container-fluid py-3">
-			<h1 class="display-5 fw-bold">Demo Portfolio</h1>
-			<p class="col-md-8 fs-4">
-				This is the demo of my personal portfolio where you will be soon able to explore all of my projects in detail.
+	<AppBanner title="Demo Portfolio" lead-text="This is the demo of my personal portfolio where you will be soon able to explore all of my projects in detail.
 				Each project showcases the various technologies I have used.
 				Feel free to browse through my work and see the skills I have developed over time.
-				Whether it's web development, mobile applications, or other software solutions.
-			</p>
-		</div>
-	</div>
+				Whether it's web development, mobile applications, or other software solutions." call-to-action="View Projects"
+		call-to-action-url="blog" />
 
 	<div class="container">
 		<div class="row">
