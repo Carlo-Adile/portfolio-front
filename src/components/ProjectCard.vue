@@ -29,7 +29,6 @@ export default {
 		<div class="card-body">
 			<h3 class="card-title">{{ project.title }}</h3>
 			<p class="card-text line_clamp">{{ project.content }}</p>
-
 			<hr>
 
 			<div v-if="project.type">

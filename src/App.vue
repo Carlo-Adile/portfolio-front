@@ -1,32 +1,17 @@
 <script>
+import AppHeader from './components/AppHeader.vue'
 
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    AppHeader
+  }
 
 }
 </script>
 
 <template>
-  <header class="container-fluid">
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">CARLO ADILE</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="right-menu d-flex gap-3">
-          <router-link :to="{ name: 'home' }" class="no_style">Home</router-link>
-          <router-link :to="{ name: 'blog' }" class="no_style">Blog</router-link>
-          <router-link :to="{ name: 'contacts' }" class="no_style">Contacts</router-link>
-          <router-link :to="{ name: 'about' }" class="no_style">About</router-link>
-        </div>
-      </div>
-    </nav>
-
-  </header>
+  <AppHeader />
 
   <main>
     <RouterView />
@@ -90,10 +75,5 @@ export default {
 
 i {
   font-size: 2.5rem;
-}
-
-.no_style {
-  text-decoration: none;
-  color: inherit;
 }
 </style>
