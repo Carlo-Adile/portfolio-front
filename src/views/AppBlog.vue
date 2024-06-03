@@ -46,14 +46,12 @@ export default {
 
 
 <template>
-	<div>
-		<h1>Blog page</h1>
-	</div>
+
 	<div class="p-5 mb-2 bg-tertiary">
 		<div class="container-fluid py-3">
-			<h1 class="display-5 fw-bold">Portfolio</h1>
+			<h1 class="display-5 fw-bold">Demo Portfolio</h1>
 			<p class="col-md-8 fs-4">
-				This is my personal portfolio where you can explore all of my projects in detail.
+				This is the demo of my personal portfolio where you will be soon able to explore all of my projects in detail.
 				Each project showcases the various technologies I have used.
 				Feel free to browse through my work and see the skills I have developed over time.
 				Whether it's web development, mobile applications, or other software solutions.

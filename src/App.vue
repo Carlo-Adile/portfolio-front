@@ -10,7 +10,7 @@ export default {
   <header class="container-fluid">
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="#">Demo PORTFOLIO</a>
+        <a class="navbar-brand" href="#">CARLO ADILE</a>
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
           data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
           aria-label="Toggle navigation">
@@ -18,10 +18,10 @@ export default {
         </button>
 
         <div class="right-menu d-flex gap-3">
-          <router-link :to="{ name: 'home' }">Home</router-link>
-          <router-link :to="{ name: 'blog' }">Blog</router-link>
-          <router-link :to="{ name: 'contacts' }">Contacts</router-link>
-          <router-link :to="{ name: 'about' }">About</router-link>
+          <router-link :to="{ name: 'home' }" class="no_style">Home</router-link>
+          <router-link :to="{ name: 'blog' }" class="no_style">Blog</router-link>
+          <router-link :to="{ name: 'contacts' }" class="no_style">Contacts</router-link>
+          <router-link :to="{ name: 'about' }" class="no_style">About</router-link>
         </div>
       </div>
     </nav>
@@ -90,5 +90,10 @@ export default {
 
 i {
   font-size: 2.5rem;
+}
+
+.no_style {
+  text-decoration: none;
+  color: inherit;
 }
 </style>
