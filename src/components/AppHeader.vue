@@ -31,7 +31,7 @@ export default {
 	<header class="container-fluid">
 		<nav class="navbar navbar-expand-sm navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="#">CARLO ADILE</a>
+				<router-link :to="{ name: 'home' }" class="no_style">CARLO ADILE</router-link>
 				<button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
 					data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
 					aria-label="Toggle navigation">
