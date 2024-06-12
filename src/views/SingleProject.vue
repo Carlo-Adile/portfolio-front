@@ -24,8 +24,12 @@ export default {
 			axios
 				.get(url)
 				.then(response => {
-					this.project = response.data.response;
-					console.log(response.data);
+					if (response.data.success) {
+						this.project = response.data.response;
+						console.log(response.data);
+					} else {
+						this.$router.push({ name: 'not-found' })
+					}
 				})
 				.catch(err => {
 					console.error(err);

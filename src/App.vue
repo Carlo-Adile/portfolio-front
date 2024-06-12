@@ -72,6 +72,10 @@ export default {
 <style lang="scss">
 @import './assets/scss/structure.scss';
 
+body {
+  font-family: "Inconsolata", monospace;
+}
+
 i {
   font-size: 2.5rem;
 }
