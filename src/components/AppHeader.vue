@@ -28,28 +28,51 @@ export default {
 
 <template>
 
-	<header class="container-fluid">
-		<nav class="navbar navbar-expand-sm navbar-light bg-light">
-			<div class="container">
-				<router-link :to="{ name: 'home' }" class="no_style">CARLO ADILE</router-link>
-				<button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-					data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+	<header class="container-fluid" id="my_header">
+		<div class="container h-100 py-4">
+			<!-- <router-link :to="{ name: 'home' }" class="no_style">CARLO ADILE</router-link> -->
+			<div class="row h-100 justify-content-between">
+				<div class="row col-4 h-100 align-items-center">
+					<router-link v-for="link in menu" :to="{ name: link.route }" id="header_links">
+						<h5>{{ link.text }}</h5>
+					</router-link>
+				</div>
+				<div class="row col-8 h-100 align-items-center">
+					<h3>header</h3>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum eveniet, consequuntur neque labore nesciunt
+						nihil odio reiciendis iure dicta officiis quidem voluptatibus quos libero possimus, nisi vel reprehenderit
+						tempore porro?
+					</p>
 
-				<div class="right-menu d-flex gap-3">
-					<router-link v-for="link in menu" :to="{ name: link.route }" class="no_style">{{ link.text }}</router-link>
 				</div>
 			</div>
-		</nav>
+
+		</div>
 
 	</header>
 </template>
 
 <style scoped>
-.no_style {
+#my_header {
+	width: 100%;
+	height: 200px;
+	background-color: #212529;
+	color: #F8F9FA;
+}
+
+#header_links {
 	text-decoration: none;
 	color: inherit;
+
+	h5 {
+		margin-bottom: 0;
+		display: inline;
+		/* Rimuove il margine inferiore predefinito dell'h5 */
+	}
+
+	h5:hover {
+		border-bottom: 2px solid #F8F9FA;
+	}
 }
 </style>
