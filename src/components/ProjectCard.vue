@@ -16,6 +16,9 @@ export default {
 			type: String,
 			required: true
 		}
+	},
+	mounted() {
+		/* console.log('progetto:', this.project); */
 	}
 }
 </script>
@@ -30,6 +33,7 @@ export default {
 		<div class="card_details px-2 mb-4">
 			<h4 class="card_title">{{ project.title }}</h4>
 			<p class="line_clamp">{{ project.content }}</p>
+			<p v-if="project.type">{{ project.type.name }}</p>
 		</div>
 	</router-link>
 

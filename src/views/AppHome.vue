@@ -50,10 +50,11 @@ export default {
 					console.error(err);
 				})
 		},
-		/* metodi api */
+		/* api calls */
 		filterByType(type) {
 			console.log('Selected type:', type);
 			this.selectedType = type;
+			console.log(this.selectedType);
 
 			if (type) {
 				const url = this.base_api_url + this.base_projects_url + `?type_id=${type.id}`;
@@ -66,24 +67,25 @@ export default {
 		},
 		clearFilter() {
 			this.projects.data = null;
+			this.selectedType = '';
 			this.callApi(this.base_api_url + this.base_projects_url);
 		},
-		/* metodi pagination */
+		/* pagination */
 		prevPage() {
 			if (this.prevPageUrl) {
-				this.callApi(this.prevPageUrl);
+				this.callApi(this.projects.prevPageUrl);
 			}
 		},
 		nextPage() {
 			if (this.nextPageUrl) {
-				this.callApi(this.nextPageUrl);
+				this.callApi(this.projects.nextPageUrl);
 			}
 		},
 		goTo(page) {
 			const url = this.base_api_url + this.base_projects_url + `?page=${page}`
 			this.callApi(url);
 		},
-		/* metodi animation */
+		/* animation */
 		beforeEnter(el) {
 			el.style.opacity = 0;
 			el.style.transform = 'translateY(60px)';
@@ -102,7 +104,7 @@ export default {
 
 <template>
 
-	<!-- header and filter -->
+	<!-- header and filter menu -->
 	<div class="container py-5">
 		<div class="row">
 			<div class="col-12">
@@ -114,8 +116,11 @@ export default {
 			</div>
 			<div class="col-4 align-self-end">
 				<ul id="type_list">
-					<li @click="clearFilter" :class="{ active: selectedType === '' }">All</li>
-					<li v-for="type in types" @click="filterByType(type)">{{ type.name }}</li>
+					<li @click="clearFilter" :class="{ active_line: selectedType === '' || selectedType === null }">All</li>
+					<li v-for="type in types" @click="filterByType(type)" :key="type.id"
+						:class="{ active_line: selectedType.id === type.id }">
+						{{ type.name }}
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -134,7 +139,7 @@ export default {
 
 	<!-- navigation -->
 	<div class="container">
-		<nav aria-label="Page navigation" v-if="this.projects.data">
+		<nav aria-label="Page navigation" v-if="this.projects.data" id="my_nav">
 			<ul class="pagination">
 				<!-- prev page -->
 				<li class="page-item" v-show="projects.prev_page_url" @click="prevPage()">
@@ -161,21 +166,25 @@ export default {
 </template>
 
 <style lang="scss">
+#my_nav {
+	/* space for animation */
+	margin-top: 60px;
+}
+
 #type_list {
 	display: flex;
 	gap: 1rem;
 	justify-content: flex-end;
-
 	list-style-type: none;
-	text-decoration: none;
 	color: inherit;
+}
 
-	li:hover {
-		border-bottom: 2px solid black;
-	}
+li:hover {
+	border-bottom: 2px solid black;
 }
 
 .active_line {
+	font-weight: bold;
 	border-bottom: 2px solid black;
 }
 </style>
