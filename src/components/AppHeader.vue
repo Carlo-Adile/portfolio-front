@@ -68,7 +68,6 @@ export default {
 	h5 {
 		margin-bottom: 0;
 		display: inline;
-		/* Rimuove il margine inferiore predefinito dell'h5 */
 	}
 
 	h5:hover {
