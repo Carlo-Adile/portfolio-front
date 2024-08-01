@@ -16,7 +16,7 @@ export default {
 		return {
 			loading: true,
 			projects: [],
-			base_api_url: 'http://127.0.0.1:8000',
+			base_api_url: 'https://back-office.carloadile.com',
 			base_projects_url: '/api/projects',
 			/* base_projects_url: '/api/latest', */
 			types: [
@@ -137,7 +137,8 @@ export default {
 			</div>
 			<div class="col-4 align-self-end">
 				<ul id="type_list">
-					<li @click="clearFilter" :class="{ active_filter: selectedType === '' || selectedType === null }">All</li>
+					<li @click="clearFilter" :class="{ active_filter: selectedType === '' || selectedType === null }">
+						All</li>
 					<li v-for="type in types" @click="filterByType(type)" :key="type.id"
 						:class="{ active_filter: selectedType.id === type.id }">
 						{{ type.name }}
@@ -169,8 +170,8 @@ export default {
 					</button>
 				</li>
 				<!-- page numbers -->
-				<li class="page-item" v-for="page in projects.last_page" :class="{ 'active': page == projects.current_page }"
-					aria-current="page">
+				<li class="page-item" v-for="page in projects.last_page"
+					:class="{ 'active': page == projects.current_page }" aria-current="page">
 					<button class="page-link" @click="goTo(page)">{{ page }}</button>
 				</li>
 				<!-- next page -->
