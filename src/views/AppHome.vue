@@ -16,36 +16,61 @@ export default {
 		return {
 			loading: true,
 			projects: [],
-			base_api_url: 'https://back-office.carloadile.com',
+			/* base_api_url: 'https://back-office.carloadile.com', */
+			/* base_api_url: 'http://127.0.0.1:8000', */
+			base_api_url: import.meta.env.VITE_BASE_API_URL,
 			base_projects_url: '/api/projects',
-			/* base_projects_url: '/api/latest', */
-			types: [
-				{ id: 1, name: 'Fullstack' },
-				{ id: 2, name: 'Front-end' },
-				{ id: 3, name: 'Back-end' },
-				{ id: 4, name: 'IoT' },
-			],
+			base_filtered_url: '/api/filtered',
 
-			/* types */
-			selectedType: '',
-			base_types_url: '/api/filtered',
+			/* categories */
+			selectedCategory: null,
+			categories: [
+				{ id: 1, title: 'WebSites' },
+				{ id: 2, title: 'Applications' },
+				{ id: 3, title: 'Games' }
+			],
+			/* header */
+			headerMenu: [
+				{
+					'text': 'Home',
+					'route': 'home'
+				},
+				{
+					'text': 'About',
+					'route': 'about'
+				},
+				{
+					'text': 'Contacts',
+					'route': 'contacts'
+				},
+				{
+					'text': 'Blog',
+					'route': 'blog'
+				}
+			],
 			/* offcanvas */
 			isToggle: false
 		}
 	},
 	mounted() {
-		let url = this.base_api_url + this.base_projects_url
-		this.callApi(url);
+		/* let url = this.base_api_url + this.base_projects_url */
+		this.callApi();
+		/* console.log("verifica base api url locale: ", this.base_api_url); */
 	},
 	methods: {
-		callApi(url) {
+		/* api calls */
+		callApi() {
+			let url = this.base_api_url + this.base_projects_url;
+			if (this.selectedCategory) {
+				url = this.base_api_url + this.base_filtered_url + `?category_id=${this.selectedCategory.id}`;
+			}
 			axios
 				.get(url)
 				.then(response => {
 					if (response.data.success) {
 						this.projects = response.data.projects;
 						this.loading = false;
-						console.log(response.data);
+						console.log("tutti i progetti caricati:", response.data);
 					} else {
 						console.error("api not reached successfully");
 					}
@@ -54,25 +79,13 @@ export default {
 					console.error(err);
 				})
 		},
-		/* api calls */
-		filterByType(type) {
-			console.log('Selected type:', type);
-			this.selectedType = type;
-			console.log(this.selectedType);
-
-			if (type) {
-				const url = this.base_api_url + this.base_projects_url + `?type_id=${type.id}`;
-				console.log('API URL:', url);
-				this.projects.data = null;
-				this.callApi(url);
-			} else {
-				this.callApi(this.base_api_url + this.base_projects_url);
-			}
+		selectCategory(category) {
+			this.selectedCategory = category;
+			this.callApi();
 		},
 		clearFilter() {
-			this.projects.data = null;
-			this.selectedType = '';
-			this.callApi(this.base_api_url + this.base_projects_url);
+			this.selectedCategory = null;
+			this.callApi();
 		},
 		/* pagination */
 		prevPage() {
@@ -116,7 +129,28 @@ export default {
 	<!-- AppHeader -->
 	<div class="offcanvas offcanvas-top offcanvas_style" tabindex="-1" id="my_offcanvas"
 		aria-labelledby="myOffcanvasLabel">
-		<AppHeader />
+		<header class="container-fluid" id="my_header">
+			<div class="container h-100 py-4">
+				<!-- <router-link :to="{ name: 'home' }" class="no_style">CARLO ADILE</router-link> -->
+				<div class="row h-100 justify-content-between">
+					<div class="row col-4 h-100 align-items-center">
+						<router-link v-for="link in headerMenu" :to="{ name: link.route }" id="header_links">
+							<h5>{{ link.text }}</h5>
+						</router-link>
+					</div>
+					<div class="row col-8 h-100 align-items-center">
+						<h3>header</h3>
+						<p>
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum eveniet, consequuntur neque
+							labore nesciunt
+							nihil odio reiciendis iure dicta officiis quidem voluptatibus quos libero possimus, nisi vel
+							reprehenderit
+							tempore porro?
+						</p>
+					</div>
+				</div>
+			</div>
+		</header>
 	</div>
 
 	<!-- first section, offcanvas btn, filter menu -->
@@ -125,23 +159,23 @@ export default {
 			<!-- refactor in component -->
 			<div class="col-12 d-flex justify-content-between">
 				<h3 class="pb-5">Portfolio</h3>
-				<button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#my_offcanvas"
+				<button class="btn pt-0 d-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#my_offcanvas"
 					aria-controls="my_offcanvas" @click="toggleOffcanvas">
 					<i v-if="isToggle == false" class="fa-solid fa-bars"></i>
 					<i v-else="isToggle == true" class="fa-solid fa-x"></i>
 				</button>
 			</div>
-			<div class="col-8">
+			<div class="col-12 col-md-8">
 				<h2>Ciao, sono Carlo Adile</h2>
-				<h4>Jr Full Stack Web Developer Trainee</h4>
+				<h4 class="mt-3 mb-4">Jr Full Stack Web Developer Trainee</h4>
 			</div>
-			<div class="col-4 align-self-end">
-				<ul id="type_list">
-					<li @click="clearFilter" :class="{ active_filter: selectedType === '' || selectedType === null }">
+			<div class="col-12 col-md-4">
+				<ul id="category_list">
+					<li @click="clearFilter" :class="{ active_filter: selectedCategory === null }">
 						All</li>
-					<li v-for="type in types" @click="filterByType(type)" :key="type.id"
-						:class="{ active_filter: selectedType.id === type.id }">
-						{{ type.name }}
+					<li v-for="category in categories" @click="selectCategory(category)" :key="category.id"
+						:class="{ active_filter: selectedCategory && selectedCategory.id === category.id }">
+						{{ category.title }}
 					</li>
 				</ul>
 			</div>
@@ -152,7 +186,8 @@ export default {
 	<div class="container py-2 " style="min-height: 400px">
 		<div class="row px-2" v-if="projects.data">
 			<transition-group appear @before-enter="beforeEnter" @enter="enter">
-				<div class="col-4" v-for="(project, index) in projects.data" data-index="index" :key="project.id">
+				<div class="col-12 col-lg-6 col-xl-4" v-for="(project, index) in projects.data" data-index="index"
+					:key="project.id">
 					<ProjectCard :project="project" :baseApiUrl="base_api_url" />
 				</div>
 			</transition-group>
@@ -170,8 +205,8 @@ export default {
 					</button>
 				</li>
 				<!-- page numbers -->
-				<li class="page-item" v-for="page in projects.last_page"
-					:class="{ 'active': page == projects.current_page }" aria-current="page">
+				<li class="page-item" v-for="page in projects.last_page" :class="{ 'active': page == projects.current_page }"
+					aria-current="page">
 					<button class="page-link" @click="goTo(page)">{{ page }}</button>
 				</li>
 				<!-- next page -->
@@ -190,6 +225,28 @@ export default {
 body {
 	/* allow scroll while offcanvas is active */
 	overflow: auto !important;
+}
+
+/* header */
+#my_header {
+	width: 100%;
+	height: 200px;
+	background-color: #212529;
+	color: #F8F9FA;
+}
+
+#header_links {
+	text-decoration: none;
+	color: inherit;
+
+	h5 {
+		margin-bottom: 0;
+		display: inline;
+	}
+
+	h5:hover {
+		border-bottom: 2px solid #F8F9FA;
+	}
 }
 
 #my_offcanvas {
@@ -221,12 +278,17 @@ body {
 }
 
 /* filter menu */
-#type_list {
+#category_list {
 	display: flex;
 	gap: 1rem;
-	justify-content: flex-end;
 	list-style-type: none;
 	color: inherit;
+	justify-content: flex-start;
+	padding: 0;
+
+	@media(min-width: 768px) {
+		justify-content: flex-end;
+	}
 
 	li:hover {
 		border-bottom: 2px solid black;

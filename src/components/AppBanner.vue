@@ -17,8 +17,8 @@ export default {
 </script>
 <template>
 	<div class="banner">
-		<div class="container-fluid p-5">
-			<h1>{{ title }}</h1>
+		<div class="container py-5">
+			<h2>{{ title }}</h2>
 			<p>{{ leadText }}</p>
 			<router-link :to="{ name: callToActionUrl }" class="btn btn-primary">{{ callToAction }}</router-link>
 		</div>

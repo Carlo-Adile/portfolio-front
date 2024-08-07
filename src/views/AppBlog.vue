@@ -49,11 +49,9 @@ export default {
 
 <template>
 
-	<AppBanner title="Demo Portfolio" lead-text="This is the demo of my personal portfolio where you will be soon able to explore all of my projects in detail.
-				Each project showcases the various technologies I have used.
-				Feel free to browse through my work and see the skills I have developed over time.
-				Whether it's web development, mobile applications, or other software solutions." call-to-action="View Projects"
-		call-to-action-url="blog" />
+	<AppBanner title="Blog personale"
+		lead-text="Questo è il blog del mio sito internet. Torna qui in futuro per vedere post e annunci di vario genere."
+		call-to-action="Torna ai progetti" call-to-action-url="home" />
 
 	<div class="container">
 		<div class="row">

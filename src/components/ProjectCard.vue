@@ -18,7 +18,7 @@ export default {
 		}
 	},
 	mounted() {
-		/* console.log('progetto:', this.project); */
+		/* console.log('progetto selezionato:', this.project); */
 	}
 }
 </script>
@@ -26,10 +26,13 @@ export default {
 <template>
 
 	<router-link :to="{ name: 'project', params: { slug: project.slug } }" class="no_style">
-		<div class="card card_style rounded-1 mb-1">
-			<img v-if="project.cover_image" :src="baseApiUrl + '/uploads/' + project.cover_image" :alt="project.title">
+
+		<div class="card card_style border-0 rounded-0 mb-1">
+			<img v-if="project.cover_image" :src="baseApiUrl + '/storage/' + project.cover_image" :alt="project.title"
+				style="width: 100; height: 100%;">
 			<img v-else src="https://placehold.co/400x400" :alt="project.title" class="card-img-top">
 		</div>
+
 		<div class="card_details px-2 mb-4">
 			<h4 class="card_title">{{ project.title }}</h4>
 			<p class="line_clamp">{{ project.content }}</p>
@@ -38,7 +41,6 @@ export default {
 	</router-link>
 
 </template>
-
 
 <style lang="scss">
 .no_style {
