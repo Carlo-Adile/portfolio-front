@@ -33,7 +33,7 @@ export default {
 			<img v-else src="https://placehold.co/400x400" :alt="project.title" class="card-img-top">
 		</div>
 
-		<div class="card_details px-2 mb-4">
+		<div class="card_details px-2 pt-1 mb-4">
 			<h4 class="card_title">{{ project.title }}</h4>
 			<p class="line_clamp">{{ project.content }}</p>
 			<p v-if="project.type">{{ project.type.name }}</p>
