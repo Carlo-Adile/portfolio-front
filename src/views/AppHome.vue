@@ -141,13 +141,13 @@ export default {
 					</div>
 					<div class="row col-8 h-100 align-items-center">
 						<h3>header</h3>
-						<p>
+						<!-- <p>
 							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum eveniet, consequuntur neque
 							labore nesciunt
 							nihil odio reiciendis iure dicta officiis quidem voluptatibus quos libero possimus, nisi vel
 							reprehenderit
 							tempore porro?
-						</p>
+						</p> -->
 					</div>
 				</div>
 			</div>
