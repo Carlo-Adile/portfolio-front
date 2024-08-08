@@ -184,7 +184,7 @@ export default {
 	</div>
 
 	<!-- projects rendering -->
-	<div class="container p-2 " style="min-height: 400px">
+	<div class="projects_container py-2 " style="min-height: 400px">
 		<div class="row px-2" v-if="projects.data">
 			<transition-group appear @before-enter="beforeEnter" @enter="enter">
 				<div class="col-12 col-lg-6 col-xl-4" v-for="(project, index) in projects.data" data-index="index"
@@ -248,6 +248,10 @@ body {
 	h5:hover {
 		border-bottom: 2px solid #F8F9FA;
 	}
+}
+
+.projects_container {
+	width: 90%;
 }
 
 #my_offcanvas {
