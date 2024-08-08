@@ -61,7 +61,7 @@ export default {
 		/* api calls */
 		callApi() {
 			let url = this.base_api_url + this.base_projects_url;
-			console.log("url composto: ", this.url);
+			console.log("url composto: ", url);
 			if (this.selectedCategory) {
 				url = this.base_api_url + this.base_filtered_url + `?category_id=${this.selectedCategory.id}`;
 			}
