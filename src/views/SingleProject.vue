@@ -59,7 +59,7 @@ export default {
 				<ul v-for="technology in project.technologies" :key="technology.id" class="custom_list">
 					<li>{{ technology.title }}</li>
 				</ul>
-				<div class="mt-4 d-flex gap-2">
+				<div class="my-4 d-flex gap-2">
 					<a v-if="project.github_url" :href="project.github_url" class="btn border border-dark rounded-0"
 						style="font-size: 0.8rem;" target="_blank" rel="noopener noreferrer">
 						REPOSITORY GITHUB
@@ -69,6 +69,7 @@ export default {
 						SITO UFFICIALE
 					</a>
 				</div>
+				<p v-if="project.note" class="align-self-end">note: <br> {{ project.note }}</p>
 			</div>
 		</div>
 

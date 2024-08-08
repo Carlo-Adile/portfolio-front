@@ -27,7 +27,7 @@ export default {
 
 	<router-link :to="{ name: 'project', params: { slug: project.slug } }" class="no_style">
 
-		<div class="card card_style border-0 rounded-0 mb-1">
+		<div class="card card_style border-0 rounded-0 mb-3">
 			<img v-if="project.cover_image" :src="baseApiUrl + '/storage/' + project.cover_image" :alt="project.title"
 				style="width: 100; height: 100%;">
 			<img v-else src="https://placehold.co/400x400" :alt="project.title" class="card-img-top">
