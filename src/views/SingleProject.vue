@@ -11,7 +11,8 @@ export default {
 		return {
 			loading: true,
 			project: null,
-			base_api_url: 'http://127.0.0.1:8000',
+			/* base_api_url: 'http://127.0.0.1:8000', */
+			base_api_url: import.meta.env.VITE_BASE_API_URL,
 			base_projects_url: '/api/projects'
 		}
 	},
@@ -21,6 +22,7 @@ export default {
 	},
 	methods: {
 		callApi(url) {
+			console.log("url composto per il singolo progetto: ", url);
 			axios
 				.get(url)
 				.then(response => {
