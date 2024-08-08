@@ -61,6 +61,7 @@ export default {
 		/* api calls */
 		callApi() {
 			let url = this.base_api_url + this.base_projects_url;
+			console.log("url composto: ", this.url);
 			if (this.selectedCategory) {
 				url = this.base_api_url + this.base_filtered_url + `?category_id=${this.selectedCategory.id}`;
 			}
@@ -205,8 +206,8 @@ export default {
 					</button>
 				</li>
 				<!-- page numbers -->
-				<li class="page-item" v-for="page in projects.last_page" :class="{ 'active': page == projects.current_page }"
-					aria-current="page">
+				<li class="page-item" v-for="page in projects.last_page"
+					:class="{ 'active': page == projects.current_page }" aria-current="page">
 					<button class="page-link" @click="goTo(page)">{{ page }}</button>
 				</li>
 				<!-- next page -->
