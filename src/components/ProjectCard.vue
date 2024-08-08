@@ -55,8 +55,9 @@ export default {
 	}
 
 	position: relative;
-	width: 400px;
-	height: 400px;
+	/* width: 400px;
+	height: 400px; */
+	width: 100%;
 	overflow: hidden;
 }
 </style>
