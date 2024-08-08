@@ -185,7 +185,7 @@ export default {
 
 	<!-- projects rendering -->
 	<div class="projects_container py-2 " style="min-height: 400px">
-		<div class="row px-2" v-if="projects.data">
+		<div class="row justify-content-center px-2" v-if="projects.data">
 			<transition-group appear @before-enter="beforeEnter" @enter="enter">
 				<div class="col-12 col-lg-6 col-xl-4" v-for="(project, index) in projects.data" data-index="index"
 					:key="project.id">
