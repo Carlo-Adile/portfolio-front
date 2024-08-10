@@ -48,10 +48,22 @@ export default {
 
 	<div class="container py-2" v-if="project">
 		<div class="row justify-content-start">
+			<!-- immagine-link -->
 			<div class="col-12 col-lg-8">
-				<img :src="base_api_url + '/storage/' + project.cover_image" alt="project.title"
-					style="width: 100%; height: auto;">
+				<div v-if="project.deploy_url">
+					<a :href="project.deploy_url" class="btn border border-dark rounded-0" style="font-size: 0.8rem;"
+						target="_blank" rel="noopener noreferrer">
+						<img :src="base_api_url + '/storage/' + project.cover_image" alt="project.title"
+							style="width: 100%; height: auto;">
+					</a>
+				</div>
+				<div v-else>
+					<img :src="base_api_url + '/storage/' + project.cover_image" alt="project.title"
+						style="width: 100%; height: auto;">
+				</div>
 			</div>
+
+			<!-- info -->
 			<div class="col-12 col-lg-4 mt-2">
 				<h3>{{ project.title }}</h3>
 				<p class="text-secondary mb-4">{{ project.category.title }}</p>
