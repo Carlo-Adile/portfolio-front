@@ -134,7 +134,7 @@ export default {
 			<div class="container h-100 py-4">
 				<!-- <router-link :to="{ name: 'home' }" class="no_style">CARLO ADILE</router-link> -->
 				<div class="row h-100 justify-content-between">
-					<div class="row col-4 h-100 align-items-center">
+					<div class="row col-12 h-100 align-items-center">
 						<router-link v-for="link in headerMenu" :to="{ name: link.route }" id="header_links">
 							<h5>{{ link.text }}</h5>
 						</router-link>
