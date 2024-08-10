@@ -55,36 +55,10 @@ export default {
 
 	<div class="container">
 		<div class="row">
-			<h2 class="p-3">Projects</h2>
-
-			<!-- cards -->
-			<div class="col-4" v-for="project in projects.data">
-				<ProjectCard :project="project" :baseApiUrl="base_api_url" />
+			<div class="col-12">
+				<h5>Sezione in fase di sviluppo...</h5>
 			</div>
 		</div>
-
-		<!-- navigation -->
-		<nav aria-label="Page navigation">
-			<ul class="pagination">
-				<li class="page-item" v-show="projects.prev_page_url" @click="prevPage(projects.prev_page_url)">
-					<button class="page-link" aria-label="Previous">
-						<span aria-hidden="true">&laquo;</span>
-					</button>
-				</li>
-
-				<li class="page-item" :class="{ 'active': page == projects.current_page }" aria-current="page"
-					v-for="page in projects.last_page" @click="goTo(page)">
-					<button class="page-link">{{ page }}</button>
-				</li>
-
-				<li class="page-item" v-show="projects.next_page_url" @click="nextPage(projects.next_page_url)">
-					<button class="page-link" aria-label="Next">
-						<span aria-hidden="true">&raquo;</span>
-					</button>
-				</li>
-			</ul>
-		</nav>
-
 	</div>
 </template>
 

@@ -13,6 +13,14 @@ export default {
 		lead-text="Sei interessato a lavorare con me? hai domande o curiosità? sentiti libero di contattarmi tramite questa pagina."
 		call-to-action="Torna ai progetti" call-to-action-url="home" />
 
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h5>Sezione in fase di sviluppo...</h5>
+			</div>
+		</div>
+	</div>
+
 	<!-- <div class="container">
 		<h4 class="p-2">Get in touch with me</h4>
 		<form action="" class="w-25">
