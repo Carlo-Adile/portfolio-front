@@ -51,8 +51,7 @@ export default {
 			<!-- immagine-link -->
 			<div class="col-12 col-lg-8">
 				<div v-if="project.deploy_url">
-					<a :href="project.deploy_url" class="btn border border-dark rounded-0" style="font-size: 0.8rem;"
-						target="_blank" rel="noopener noreferrer">
+					<a :href="project.deploy_url" style="font-size: 0.8rem;" target="_blank" rel="noopener noreferrer">
 						<img :src="base_api_url + '/storage/' + project.cover_image" alt="project.title"
 							style="width: 100%; height: auto;">
 					</a>
