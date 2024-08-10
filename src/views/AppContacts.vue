@@ -13,7 +13,7 @@ export default {
 		lead-text="Sei interessato a lavorare con me? hai domande o curiosità? sentiti libero di contattarmi tramite questa pagina."
 		call-to-action="Torna ai progetti" call-to-action-url="home" />
 
-	<div class="container">
+	<!-- <div class="container">
 		<h4 class="p-2">Get in touch with me</h4>
 		<form action="" class="w-25">
 
@@ -29,8 +29,6 @@ export default {
 			</div>
 			<div class="col mb-3">
 				<label for="message" class="form-label">Message</label>
-				<!-- <input type="text" class="form-control" name="message" aria-describedby="helperMessage"
-					placeholder="Enter a message"> -->
 				<div>
 					<textarea name="message" id="message" rows="4" aria-describedby="helperMessage"
 						placeholder="Enter a message" class="form-control"></textarea>
@@ -42,7 +40,7 @@ export default {
 			</button>
 
 		</form>
-	</div>
+	</div> -->
 </template>
 
 <style scoped></style>

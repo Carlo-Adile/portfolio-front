@@ -13,7 +13,7 @@ export default {
 <template>
 	<AppBanner title="About me"
 		lead-text="In this section you can discover more about me. Find more about my studies, background and personal info."
-		call-to-action="View Projects" call-to-action-url="blog" />
+		call-to-action="Torna ai progetti" call-to-action-url="home" />
 </template>
 
 <style scoped></style>

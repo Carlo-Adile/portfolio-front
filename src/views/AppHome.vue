@@ -32,19 +32,19 @@ export default {
 			/* header */
 			headerMenu: [
 				{
-					'text': 'Home',
+					'text': 'Portfolio progetti',
 					'route': 'home'
 				},
 				{
-					'text': 'About',
+					'text': 'Formazione ed esperienze',
 					'route': 'about'
 				},
 				{
-					'text': 'Contacts',
+					'text': 'Contatti',
 					'route': 'contacts'
 				},
 				{
-					'text': 'Blog',
+					'text': 'Blog personale',
 					'route': 'blog'
 				}
 			],
@@ -140,7 +140,6 @@ export default {
 						</router-link>
 					</div>
 					<div class="row col-8 h-100 align-items-center">
-						<h3>header</h3>
 						<!-- <p>
 							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum eveniet, consequuntur neque
 							labore nesciunt
@@ -167,7 +166,7 @@ export default {
 				</button>
 			</div>
 			<div class="col-12 col-md-8">
-				<h2>Ciao, sono Carlo Adile</h2>
+				<h1>Ciao, sono Carlo Adile</h1>
 				<h4 class="mt-3 mb-4">Jr Full Stack Web Developer Trainee</h4>
 			</div>
 			<div class="col-12 col-md-4">
