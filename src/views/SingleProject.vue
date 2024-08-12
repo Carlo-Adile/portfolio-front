@@ -43,7 +43,7 @@ export default {
 
 <template>
 	<AppBanner title="Anteprima progetto"
-		lead-text="Ecco un anteprima più dettagliata su questo progetto. Clicka sui link disponibili per scoprire il codice sorgente su Github o il sito ufficiale."
+		lead-text="Visita i link disponibili per scoprire il codice sorgente su Github o il sito ufficiale."
 		call-to-action="Vedi tutti i progetti" call-to-action-url="home" />
 
 	<div class="container py-2" v-if="project">
