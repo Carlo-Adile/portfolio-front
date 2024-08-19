@@ -49,7 +49,7 @@ export default {
 	<div class="container py-2" v-if="project">
 		<div class="row justify-content-start">
 			<!-- immagine-link -->
-			<div class="col-12 col-lg-8">
+			<div class="col-12 col-lg-6">
 				<div v-if="project.deploy_url">
 					<a :href="project.deploy_url" style="font-size: 0.8rem;" target="_blank" rel="noopener noreferrer">
 						<img :src="base_api_url + '/storage/' + project.cover_image" alt="project.title"
@@ -63,10 +63,10 @@ export default {
 			</div>
 
 			<!-- info -->
-			<div class="col-12 col-lg-4 mt-2">
+			<div class="col-12 col-lg-6 mt-2">
 				<h3>{{ project.title }}</h3>
 				<p class="text-secondary mb-4">{{ project.category.title }}</p>
-				<p class="mb-4">{{ project.content }}</p>
+				<p class="mb-4 pe-lg-5">{{ project.content }}</p>
 				<ul v-for="technology in project.technologies" :key="technology.id" class="custom_list">
 					<li>{{ technology.title }}</li>
 				</ul>
@@ -80,10 +80,9 @@ export default {
 						SITO UFFICIALE
 					</a>
 				</div>
-				<p v-if="project.note" class="align-self-end">note: <br> {{ project.note }}</p>
+				<p v-if="project.note" class="pe-lg-5">note: <br> {{ project.note }}</p>
 			</div>
 		</div>
-
 	</div>
 
 </template>
