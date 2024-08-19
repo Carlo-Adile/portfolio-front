@@ -25,9 +25,9 @@ export default {
 			/* categories */
 			selectedCategory: null,
 			categories: [
-				{ id: 1, title: 'WebSites' },
-				{ id: 2, title: 'Applications' },
-				{ id: 3, title: 'Games' }
+				{ id: 1, title: 'Siti Web' },
+				{ id: 2, title: 'Applicazioni' },
+				{ id: 3, title: 'Giochi' }
 			],
 			/* header */
 			headerMenu: [
